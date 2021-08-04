@@ -221,8 +221,8 @@ impl['iso8601'] = {
     const { month, monthCode, ...original } = fields;
     const { month: newMonth, monthCode: newMonthCode } = additionalFields;
     if (newMonth === undefined && newMonthCode === undefined) {
-      original.month = month;
-      original.monthCode = monthCode;
+      if (month !== undefined) original.month = month;
+      if (monthCode !== undefined) original.monthCode = monthCode;
     }
     return { ...original, ...additionalFields };
   },
